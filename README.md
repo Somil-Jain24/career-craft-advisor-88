@@ -1,73 +1,53 @@
-# Welcome to your Lovable project
+# Career Craft Advisor
 
-## Project info
+AI-powered career guidance app built with React, TypeScript, Tailwind CSS, and shadcn UI.
 
-**URL**: https://lovable.dev/projects/02be0ae5-f386-4139-91ae-a96d15e0b013
+## Features
 
-## How can I edit this code?
+- Login with local session, protected routes (`/dashboard`, `/quiz`, `/chat`, `/colleges`, `/scholarships`, `/about`, `/contact`)
+- Personalized dashboard with user name
+- Career quiz and recommendations
+- Gemini-powered AI chatbot (`/chat`)
+- Service grid section with animations (framer-motion)
+- Colorful pages for Colleges, Scholarships, and About
+- Contact form posting to `/api/contact`
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+- Vite + React + TypeScript
+- Tailwind CSS
+- shadcn/ui component architecture (`src/components/ui`)
+- framer-motion
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/02be0ae5-f386-4139-91ae-a96d15e0b013) and start prompting.
+## Getting Started
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+Prerequisites: Node.js and npm
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Environment variables
+cp .env.example .env  # or create .env
+# Add your key
+VITE_GEMINI_API_KEY=YOUR_GEMINI_KEY
+
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open http://localhost:8080 (as configured in `vite.config.ts`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Project Structure
 
-**Use GitHub Codespaces**
+- `src/components/ui/*`: reusable UI components (shadcn style)
+- `src/components/*`: app-level components
+- `src/pages/*`: route pages
+- `src/context/*`: React context providers (auth)
+- `src/server/api.ts`: dev middleware handlers (`/api/chat`, `/api/contact`)
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Contact Email
 
-## What technologies are used for this project?
+User queries are sent via the contact page. Support email: `somiljain024@gmail.com`.
 
-This project is built with:
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/02be0ae5-f386-4139-91ae-a96d15e0b013) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Build and host as a standard Vite React app on your platform of choice (Vercel, Netlify, etc.). Ensure `VITE_GEMINI_API_KEY` is set.
