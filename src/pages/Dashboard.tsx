@@ -14,8 +14,16 @@ import {
   Star,
   Target
 } from "lucide-react";
+import { useAuth } from "@/context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Dashboard = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) navigate("/login");
+  }, [user, navigate]);
   const userProgress = {
     careerQuiz: 100,
     profileCompletion: 75,
@@ -44,13 +52,13 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold">
-                Welcome back, <span className="gradient-text">Priya</span>! 👋
+                Welcome back, <span className="gradient-text">{user?.name || "Student"}</span>! 👋
               </h1>
               <p className="text-muted-foreground mt-2">
                 Continue your career journey and explore new opportunities.
               </p>
             </div>
-            <HeroButton variant="hero">
+            <HeroButton variant="hero" onClick={() => navigate("/chat")}>
               <MessageCircle className="mr-2 h-4 w-4" />
               Ask AI Career Coach
             </HeroButton>
@@ -132,7 +140,7 @@ const Dashboard = () => {
                           <p className="text-sm text-muted-foreground">{action.description}</p>
                         </div>
                       </div>
-                      <HeroButton variant="hero-ghost" size="sm">
+                      <HeroButton variant="hero-ghost" size="sm" onClick={() => navigate("/quiz")}>
                         Start
                       </HeroButton>
                     </div>
@@ -152,7 +160,7 @@ const Dashboard = () => {
                     <p className="text-sm text-muted-foreground mb-3">
                       High growth potential with strong job market
                     </p>
-                    <HeroButton variant="hero-outline" size="sm">
+                    <HeroButton variant="hero-outline" size="sm" onClick={() => navigate("/quiz")}>
                       Explore Path
                     </HeroButton>
                   </div>
@@ -164,7 +172,7 @@ const Dashboard = () => {
                     <p className="text-sm text-muted-foreground mb-3">
                       Emerging field with excellent opportunities
                     </p>
-                    <HeroButton variant="hero-outline" size="sm">
+                    <HeroButton variant="hero-outline" size="sm" onClick={() => navigate("/quiz")}>
                       Explore Path
                     </HeroButton>
                   </div>

@@ -113,7 +113,7 @@ const CareerQuiz = () => {
                     <div className="text-2xl font-bold text-primary">{career.match}</div>
                   </div>
                   <p className="text-muted-foreground mb-4">{career.description}</p>
-                  <HeroButton variant="hero-outline" size="sm">
+                  <HeroButton variant="hero-outline" size="sm" onClick={() => navigate("/dashboard")}>
                     View Career Path
                   </HeroButton>
                 </Card>

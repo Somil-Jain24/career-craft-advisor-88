@@ -53,8 +53,8 @@ export const CTASection = () => {
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </HeroButton>
             
-            <HeroButton variant="hero-outline" size="xl" className="border-white text-white hover:bg-white hover:text-primary">
-              Learn More
+            <HeroButton variant="hero-outline" size="xl" className="border-white text-white hover:bg-white hover:text-primary" onClick={() => navigate("/login")}>
+              Login
             </HeroButton>
           </div>
           

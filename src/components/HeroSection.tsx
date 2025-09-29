@@ -40,11 +40,6 @@ export const HeroSection = () => {
               Start Your Journey
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </HeroButton>
-            
-            <HeroButton variant="hero-outline" size="lg" className="group">
-              <Play className="mr-2 h-4 w-4" />
-              Watch Demo
-            </HeroButton>
           </div>
           
           <div className="flex items-center space-x-6 text-sm text-muted-foreground lg:justify-start justify-center">
